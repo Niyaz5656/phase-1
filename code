@@ -1,5 +1,6 @@
 int read = digitalRead(4);
-int value=255;
+int value=52;
+
 
 void setup()
 {
@@ -13,14 +14,16 @@ void setup()
 void loop()
 {
   if(read==HIGH){
-    analogWrite(7,value/4);
-    analogWrite(8,value/4);
-    analogWrite(12,value/4);
-    analogWrite(13,value/4);
-    digitalWrite(7,HIGH);
-    digitalWrite(8,LOW);
-    digitalWrite(12,LOW);
-    digitalWrite(13,LOW);
+    if(value<50){
+    for(int i=6;i<=11;i++){
+    	analogWrite(i,255/4);
+    }
+    }
+    else{
+    for(int i=6;i<=11;i++){
+    	analogWrite(i,255);
+    }
+    }
   }
   else{
     for(int i=7;i<=13;i++){
